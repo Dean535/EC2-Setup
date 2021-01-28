@@ -27,7 +27,6 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 #Adding current user to the “docker” group
 sudo usermod -aG docker ubuntu
 
-################################################################################################
 
 ########################  Install Docker Compose########################
 #Run this command to download the current stable release of Docker Compose:
@@ -39,9 +38,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 #Create a symbolic link of docker-compose to /usr/bin
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-################################################################################################
 
 ########################  Install Make ########################
 #Run this command to install make:
 sudo apt-get -y install make
-################################################################################################
