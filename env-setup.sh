@@ -22,7 +22,7 @@ sudo add-apt-repository \
 
 #INSTALL DOCKER ENGINE
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce=5:19.03.14~3-0~ubuntu-focal docker-ce-cli=5:19.03.14~3-0~ubuntu-focal containerd.io
 
 #Adding current user to the “docker” group
 sudo usermod -aG docker ubuntu
@@ -42,3 +42,18 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ########################  Install Make ########################
 #Run this command to install make:
 sudo apt-get -y install make
+
+
+########################  Install kubectl ########################
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+
+checkresult=`echo "$(<kubectl.sha256) kubectl" | sha256sum --check`
+
+if [[ $checkresult == *"OK"* ]]; then
+  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+fi
+
+
