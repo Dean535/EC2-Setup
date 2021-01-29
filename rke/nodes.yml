@@ -1,0 +1,17 @@
+# If you intened to deploy Kubernetes in an air-gapped environment,
+# please consult the documentation on how to configure custom RKE images.
+nodes:
+  - address: localhost
+    internal_address: ""
+    role:
+      - controlplane
+      - worker
+      - etcd
+    hostname_override: ""
+    user: ubuntu
+    docker_socket: /var/run/docker.sock
+    ssh_key: ""
+    ssh_cert: ""
+    ssh_cert_path: ""
+    labels: {}
+    taints: []

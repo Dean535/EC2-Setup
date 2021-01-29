@@ -6,8 +6,9 @@ connect to EC2 server and run following commands to setup
 ```shell script
 
 git clone https://github.com/Dean535/EC2-Setup
-chmod +x ./EC2-Setup/env-setup.sh
-./EC2-Setup/env-setup.sh
+cd ./EC2-Setup
+chmod +x ./env-setup.sh
+./env-setup.sh
 
 ```
 
