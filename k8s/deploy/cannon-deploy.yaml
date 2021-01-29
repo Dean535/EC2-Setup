@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cannon
+  labels:
+    app: cannon
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cannon
+  template:
+    metadata:
+      labels:
+        app: cannon
+    spec:
+      containers:
+        - name: cannon
+          image: docker.pkg.github.com/zran-nz/cannon/cannon:develop
+          env:
+            - name: SPRING_BOOT_PROFILE
+              value: "--spring.profiles.active=prod"
+            - name: JAVA_OPTS
+              value: "-server -Xmx512m -Xms512m"
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: dockerauth
